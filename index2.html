@@ -6,7 +6,7 @@
 		<img id="imagePreview" style="height: 300px;" />
 		<input id="imageUpload" type="file" />
 
-		<div>Teachable Machine Image Model with upload</div>
+		<div>Clasificador Perro vs Gato</div>
 		<div id="label-container"></div>
 		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
 		<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
@@ -40,8 +40,7 @@
 				var image = document.getElementById('imagePreview');
 				const prediction = await model.predict(image, false);
 				for (let i = 0; i < maxPredictions; i++) {
-					const classPrediction =
-						prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
+					const classPrediction =prediction[i].className + ': ' + prediction[i].probability.toFixed(2);
 					labelContainer.childNodes[i].innerHTML = classPrediction;
 				}
 			}
